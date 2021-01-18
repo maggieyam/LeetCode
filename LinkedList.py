@@ -53,6 +53,31 @@ def reverseList(self, head: ListNode) -> ListNode:
         head = next_node
         return head
 
+def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:      
+        if not l1:
+            return l2
+        if not l2:
+            return l1
+        
+        if l1.val <= l2.val:
+            curr1 = l1
+            curr2 = l2
+        else:
+            curr2 = l1
+            curr1 = l2
+        head = curr1
+                   
+        while curr1.next:
+            prev = curr1.next
+            if curr1.val <= curr2.val and prev.val > curr2.val:
+                curr1.next = curr2
+            if curr2.val < prev.val:
+                curr1 = curr2
+                curr2 = prev
+            else:
+                curr1 = prev
+        curr1.next = curr2
+        return head
 
 if __name__ == '__main__':
     main()
