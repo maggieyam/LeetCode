@@ -4,8 +4,6 @@ class Solution:
         layer = 0
         count = 0
         while n > 1:
-            print(layer)
-            print(res)
             for col in range(layer, n - 1 + layer):
                 count += 1
                 res[layer][col] = count
